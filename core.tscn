@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ebhcrqyv4nis"]
+
+[ext_resource type="PackedScene" uid="uid://loqaaktqq3kc" path="res://rigid_body_2d.tscn" id="1_tvpqx"]
+[ext_resource type="Script" uid="uid://co6d1gehodo61" path="res://anchor.gd" id="2_tvpqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05t4c"]
+size = Vector2(1161, 60)
+
+[node name="Core" type="Node2D"]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_tvpqx")]
+position = Vector2(355, 146)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("1_tvpqx")]
+position = Vector2(556, 144)
+mass = 10.0
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("1_tvpqx")]
+position = Vector2(735, 144)
+mass = 20.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, 657)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(570.5, -20)
+shape = SubResource("RectangleShape2D_05t4c")
+
+[node name="Anchor" type="StaticBody2D" parent="."]
+script = ExtResource("2_tvpqx")
+
+[node name="Pin" type="PinJoint2D" parent="Anchor"]
+node_a = NodePath("..")
+bias = 0.3
+softness = 1.0

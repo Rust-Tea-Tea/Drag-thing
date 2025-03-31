@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://loqaaktqq3kc"]
+
+[ext_resource type="Texture2D" uid="uid://pa0hyg6np4dk" path="res://icon.svg" id="1_wltir"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wltir"]
+bounce = 0.25
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvpqx"]
+size = Vector2(128, 126)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_wltir")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wltir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tvpqx")
