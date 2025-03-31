@@ -19,6 +19,7 @@ func _input(event: InputEvent):
 #Getting the object to pin
 #Forgot how I did it before so ended up asking ai for getting the object under the click
 #Not 100% sure what it did here frankly, never saw direct_space_state used ever before
+#Problably can be changed to a raycast 2d, with little effort
 func _get_body_under_mouse() -> Node:
 	var space = get_world_2d().direct_space_state
 	var query = PhysicsPointQueryParameters2D.new()
